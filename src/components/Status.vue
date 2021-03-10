@@ -255,7 +255,8 @@ export default {
         let data = []
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv4_http' ||
-            val === 'ipv4_https') {
+            val === 'ipv4_https' ||
+            val === 'ipv4_rsync') {
             needIdx.push(idx)
           }
         })
@@ -287,7 +288,8 @@ export default {
         let data = []
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv6_http' ||
-            val === 'ipv6_https') {
+            val === 'ipv6_https' ||
+            val === 'ipv6_rsync') {
             needIdx.push(idx)
           }
         })
@@ -319,7 +321,8 @@ export default {
         let data = []
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv4_http' ||
-            val === 'ipv4_https') {
+            val === 'ipv4_https' ||
+            val === 'ipv4_rsync') {
             needIdx.push(idx)
           }
         })
@@ -351,7 +354,8 @@ export default {
         let data = []
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv6_http' ||
-            val === 'ipv6_https') {
+            val === 'ipv6_https' ||
+            val === 'ipv6_rsync') {
             needIdx.push(idx)
           }
         })
