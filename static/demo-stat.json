@@ -1,0 +1,42 @@
+{
+  "archlinux": {
+    "status": "done",
+    "timestamp": 1613460760790.8696
+  },
+  "archlinuxarm": {
+    "status": "done",
+    "timestamp": 1613460798051.194
+  },
+  "centos": {
+    "status": "done",
+    "timestamp": 1613460720210.516
+  },
+  "epel": {
+    "status": "done",
+    "timestamp": 1613459510979.9985
+  },
+  "linuxmint": {
+    "status": "done",
+    "timestamp": 1613460808611.2861
+  },
+  "linuxmint-cdimages": {
+    "status": "done",
+    "timestamp": 1613460810891.306
+  },
+  "pypi": {
+    "status": "running",
+    "timestamp": 1613471347643.4336
+  },
+  "ubuntu": {
+    "status": "done",
+    "timestamp": 1613459375908.8262
+  },
+  "ubuntu-cdimages": {
+    "status": "done",
+    "timestamp": 1613459218957.4639
+  },
+  "ubuntu-releases": {
+    "status": "done",
+    "timestamp": 1613459133516.7222
+  }
+}

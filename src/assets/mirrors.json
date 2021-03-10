@@ -1,0 +1,58 @@
+{
+  "data": {
+    "ubuntu-releases": {
+      "name": "Ubuntu-releases",
+      "url": "/ubuntu-releases/"
+    },
+    "ubuntu-cdimages": {
+      "name": "Ubuntu-cdimages",
+      "url": "/ubuntu-cdimages/"
+    },
+    "ubuntu": {
+      "name": "Ubuntu",
+      "url": "/ubuntu/",
+      "help": "Ubuntu"
+    },
+    "centos": {
+      "name": "CentOS",
+      "url": "/centos/",
+      "help": "CentOS"
+    },
+    "epel": {
+      "name": "EPEL",
+      "url": "/epel/",
+      "help": "EPEL"
+    },
+    "archlinux": {
+      "name": "Archlinux",
+      "url": "/archlinux/",
+      "help": "ArchLinux"
+    },
+    "archlinuxarm": {
+      "name": "Archlinux ARM",
+      "url": "/archlinuxarm/"
+    },
+    "pypi": {
+      "name": "Pypi",
+      "url": "/pypi/",
+      "help": "Pypi"
+    },
+    "linuxmint": {
+      "name": "Linuxmint",
+      "url": "/linuxmint/"
+    },
+    "linuxmint-cdimages": {
+      "name": "Linuxmint-cdimages",
+      "url": "/linuxmint-cdimages/"
+    },
+    "opensuse": {
+      "name": "Opensuse",
+      "url": "/opensuse/"
+    },
+    "anaconda": {
+      "name": "Anaconda",
+      "url": "/anaconda/",
+      "help": "Anaconda"
+    }
+  }
+}
