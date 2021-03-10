@@ -1,0 +1,14 @@
+User-agent: *
+
+Disallow: /pypi
+Disallow: /ubuntu
+Disallow: /centos
+Disallow: /ubuntu-releases
+Disallow: /ubuntu-cdimages
+Disallow: /epel
+Disallow: /anaconda
+Disallow: /archlinuxarm
+Disallow: /archlinux
+Disallow: /linuxmint
+Disallow: /linuxmint-cdimages
+
