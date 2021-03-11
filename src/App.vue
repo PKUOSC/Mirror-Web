@@ -24,9 +24,14 @@ export default {
 
 <style>
 /* Note: Apply ``overflow-{x,y}: hidden'' on <li></li> will hide the marker. */
+html {
+  height: 100%;
+}
 body {
   overflow-x: scroll;
   overflow-y: scroll;
+  height: 100%;
+  margin: 0;
 }
 @font-face {
   font-family: 'Avenir';
@@ -48,6 +53,7 @@ body {
 .my-content {
   padding-top: 80px;
   max-width: 1140px;
+  min-height: calc(100% - 210px);
   margin: 0 auto;
   z-index: 0;
 }
