@@ -65,10 +65,10 @@ export default {
   color: white;
 }
 .close-button {
-  height: 25px;
-  width: 30px;
+  height: 2rem;
+  width: 2rem;
   position: absolute;
-  top: -25px;
+  top: -2rem;
   background-color: #505255;
   display: flex;
   align-items: center;
@@ -78,8 +78,8 @@ export default {
   box-shadow: 3px 3px;
 }
 .open-button {
-  height: 25px;
-  width: 30px;
+  height: 2rem;
+  width: 2rem;
   position: fixed;
   bottom: 0px;
   background-color: white;
