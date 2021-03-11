@@ -333,7 +333,7 @@ export default {
           })
         })
         that.chartdata_ipv6_in = {
-          type: 'Kib',
+          type: type,
           axisX: that.calculateX(rawTimeline),
           data: data
         }
@@ -379,7 +379,7 @@ export default {
           })
         })
         that.chartdata_ipv4_out = {
-          type: 'Kib',
+          type: type,
           axisX: that.calculateX(rawTimeline),
           data: data
         }
@@ -425,7 +425,7 @@ export default {
           })
         })
         that.chartdata_ipv6_out = {
-          type: 'Kib',
+          type: type,
           axisX: that.calculateX(rawTimeline),
           data: data
         }
