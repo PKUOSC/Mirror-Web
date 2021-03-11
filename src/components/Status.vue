@@ -255,17 +255,6 @@ export default {
         let data = []
         let fraction = 1.0
         let type = 'Kib'
-        let maxv = response.data.max
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Mib'
-          fraction /= 1024
-        }
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Gib'
-          fraction /= 1024
-        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv4_http' ||
             val === 'ipv4_https' ||
@@ -280,6 +269,24 @@ export default {
           })
         })
         let rawTimeline = []
+        let maxv = 0
+        raw.forEach((val, idx, arr) => {
+          needIdx.forEach((target, targetIdx, arr2) => {
+            if (val[target] > maxv) {
+              maxv = val[target]
+            }
+          })
+        })
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
@@ -301,17 +308,6 @@ export default {
         let data = []
         let fraction = 1.0
         let type = 'Kib'
-        let maxv = response.data.max
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Mib'
-          fraction /= 1024
-        }
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Gib'
-          fraction /= 1024
-        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv6_http' ||
             val === 'ipv6_https' ||
@@ -325,6 +321,24 @@ export default {
             data: []
           })
         })
+        let maxv = 0
+        raw.forEach((val, idx, arr) => {
+          needIdx.forEach((target, targetIdx, arr2) => {
+            if (val[target] > maxv) {
+              maxv = val[target]
+            }
+          })
+        })
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         let rawTimeline = []
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
@@ -347,17 +361,6 @@ export default {
         let data = []
         let fraction = 1.0
         let type = 'Kib'
-        let maxv = response.data.max
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Mib'
-          fraction /= 1024
-        }
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Gib'
-          fraction /= 1024
-        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv4_http' ||
             val === 'ipv4_https' ||
@@ -372,6 +375,24 @@ export default {
           })
         })
         let rawTimeline = []
+        let maxv = 0
+        raw.forEach((val, idx, arr) => {
+          needIdx.forEach((target, targetIdx, arr2) => {
+            if (val[target] > maxv) {
+              maxv = val[target]
+            }
+          })
+        })
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
@@ -393,17 +414,6 @@ export default {
         let data = []
         let fraction = 1.0
         let type = 'Kib'
-        let maxv = response.data.max
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Mib'
-          fraction /= 1024
-        }
-        if (maxv > 1024) {
-          maxv /= 1024
-          type = 'Gib'
-          fraction /= 1024
-        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv6_http' ||
             val === 'ipv6_https' ||
@@ -418,6 +428,24 @@ export default {
           })
         })
         let rawTimeline = []
+        let maxv = 0
+        raw.forEach((val, idx, arr) => {
+          needIdx.forEach((target, targetIdx, arr2) => {
+            if (val[target] > maxv) {
+              maxv = val[target]
+            }
+          })
+        })
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
