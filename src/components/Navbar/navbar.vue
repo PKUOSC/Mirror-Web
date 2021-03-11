@@ -25,9 +25,9 @@
           <li class="my-nav-item">
             <a href="javascript:void(0)" @click="jumpTo('/Help')" :class="$route.path.startsWith('/Help/')?'active':'inactive'">Help</a>
           </li>
-          <li class="my-nav-item">
+          <!-- <li class="my-nav-item">
             <a href="javascript:void(0)" @click="jumpTo('/About')" :class="$route.path === '/About'?'active':'inactive'">About</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -74,7 +74,7 @@ export default {
   height: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid #dcdfe6;
-  width: 1140px;
+  max-width: 1140px;
   padding: 0;
   margin: 0 auto;
 }
