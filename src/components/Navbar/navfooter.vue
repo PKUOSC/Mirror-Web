@@ -40,7 +40,7 @@ export default {
   name: 'navFooter',
   data () {
     return {
-      drawer: true
+      drawer: false
     }
   }
 }
