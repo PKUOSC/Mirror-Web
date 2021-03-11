@@ -95,7 +95,7 @@ export default {
 
 <style>
 .el-drawer {
-  overflow: visible;
+  overflow: visible !important;
 }
 .el-drawer__body {
   background-color: #505255;
