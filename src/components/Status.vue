@@ -253,6 +253,19 @@ export default {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
+        let fraction = 1.0
+        let type = 'Kib'
+        let maxv = response.data.max
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv4_http' ||
             val === 'ipv4_https' ||
@@ -270,11 +283,11 @@ export default {
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
-            data[targetIdx].data.push(val[target])
+            data[targetIdx].data.push(val[target] * fraction)
           })
         })
         that.chartdata_ipv4_in = {
-          type: 'Kib',
+          type: type,
           axisX: that.calculateX(rawTimeline),
           data: data
         }
@@ -286,6 +299,19 @@ export default {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
+        let fraction = 1.0
+        let type = 'Kib'
+        let maxv = response.data.max
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv6_http' ||
             val === 'ipv6_https' ||
@@ -303,7 +329,7 @@ export default {
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
-            data[targetIdx].data.push(val[target])
+            data[targetIdx].data.push(val[target] * fraction)
           })
         })
         that.chartdata_ipv6_in = {
@@ -319,6 +345,19 @@ export default {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
+        let fraction = 1.0
+        let type = 'Kib'
+        let maxv = response.data.max
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv4_http' ||
             val === 'ipv4_https' ||
@@ -336,7 +375,7 @@ export default {
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
-            data[targetIdx].data.push(val[target])
+            data[targetIdx].data.push(val[target] * fraction)
           })
         })
         that.chartdata_ipv4_out = {
@@ -352,6 +391,19 @@ export default {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
+        let fraction = 1.0
+        let type = 'Kib'
+        let maxv = response.data.max
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Mib'
+          fraction /= 1024
+        }
+        if (maxv > 1024) {
+          maxv /= 1024
+          type = 'Gib'
+          fraction /= 1024
+        }
         response.data.result.labels.forEach((val, idx, arr) => {
           if (val === 'ipv6_http' ||
             val === 'ipv6_https' ||
@@ -369,7 +421,7 @@ export default {
         raw.forEach((val, idx, arr) => {
           rawTimeline.push(val[0])
           needIdx.forEach((target, targetIdx, arr2) => {
-            data[targetIdx].data.push(val[target])
+            data[targetIdx].data.push(val[target] * fraction)
           })
         })
         that.chartdata_ipv6_out = {
