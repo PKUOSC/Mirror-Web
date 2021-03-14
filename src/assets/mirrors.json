@@ -53,6 +53,18 @@
       "name": "Anaconda",
       "url": "/anaconda/",
       "help": "Anaconda"
+    },
+    "gentoo": {
+      "name": "Gentoo",
+      "url": "/gentoo/"
+    },
+    "debian": {
+      "name": "Debian",
+      "url": "/debian/"
+    },
+    "debian-cd": {
+      "name": "Debian-cd",
+      "url": "/debian-cd/"
     }
   }
 }
