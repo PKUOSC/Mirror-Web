@@ -65,6 +65,10 @@
     "debian-cd": {
       "name": "Debian-cd",
       "url": "/debian-cd/"
-    }
+    },
+    "manjaro": {
+      "name": "Manjaro",
+      "url": "/manjaro/"
+   }
   }
 }
