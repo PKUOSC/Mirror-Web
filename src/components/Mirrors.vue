@@ -13,13 +13,20 @@
         </template>
       </el-table-column>
       <el-table-column
-        prop="status"
         label="Status"
+        width="180">
+        <template slot-scope="scope">
+          {{scope.row.status}} <i v-if="scope.row.status === '同步中'" class="el-icon-loading"></i>
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="lasttimestamp"
+        label="Last Update"
         width="180">
       </el-table-column>
       <el-table-column
-        prop="timestamp"
-        label="Last Update"
+        prop="nexttimestamp"
+        label="Next Update"
         width="180">
       </el-table-column>
       <el-table-column
@@ -53,18 +60,21 @@ export default {
     tableData: function () {
       const result = []
       for (const key in this.data) {
-        let thisStatus, thisTimestamp
-        if (this.status === null || !this.status[key]) {
+        let thisStatus, thisTimestamp, nextTimestamp
+        if (this.status === null || !this.status.hasOwnProperty(key)) {
           thisStatus = '--'
           thisTimestamp = '--'
+          nextTimestamp = '--'
         } else {
-          thisStatus = {'done': '正常', 'running': '同步中', 'error': '错误'}[this.status[key].status]
-          thisTimestamp = DateTime.fromMillis(this.status[key].timestamp).toRelative({base: this.currentTime})
+          thisStatus = {'done': '正常', 'running': '同步中', 'error': '错误'}[this.status[key].state]
+          thisTimestamp = DateTime.fromMillis(this.status[key].lastSyncTime).toRelative({base: this.currentTime})
+          nextTimestamp = DateTime.fromMillis(this.status[key].nextSyncTime).toRelative({base: this.currentTime})
         }
         result.push({
           name: this.data[key].name,
           status: thisStatus,
-          timestamp: thisTimestamp,
+          lasttimestamp: thisTimestamp,
+          nexttimestamp: nextTimestamp,
           url: this.data[key].url,
           help: this.data[key].hasOwnProperty('help') ? this.data[key].help : ''
         })
@@ -98,8 +108,12 @@ export default {
   },
   mounted () {
     let that = this
-    this.$axios.get('/monitor/stat').then(res => {
-      this.status = res.data
+    this.$axios.get('/monitor/status').then(res => {
+      let status = {}
+      res.forEach((val, idx, arr) => {
+        status[val['id']] = val
+      })
+      this.status = status
     }).catch((error) => {
       if (error.response) {
         that.$message.error('无法加载状态信息')
