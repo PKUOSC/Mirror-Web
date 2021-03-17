@@ -66,7 +66,7 @@ export default {
           thisTimestamp = '--'
           nextTimestamp = '--'
         } else {
-          thisStatus = {'done': '正常', 'running': '同步中', 'error': '错误'}[this.status[key].state]
+          thisStatus = {'done': '正常', 'sync': '同步中', 'error': '错误'}[this.status[key].state]
           thisTimestamp = DateTime.fromMillis(this.status[key].lastSyncTime).toRelative({base: this.currentTime})
           nextTimestamp = DateTime.fromMillis(this.status[key].nextSyncTime).toRelative({base: this.currentTime})
         }
