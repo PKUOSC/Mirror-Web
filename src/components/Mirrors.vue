@@ -110,7 +110,7 @@ export default {
     let that = this
     this.$axios.get('/monitor/status').then(res => {
       let status = {}
-      res.forEach((val, idx, arr) => {
+      res.data.forEach((val, idx, arr) => {
         status[val['id']] = val
       })
       this.status = status
