@@ -6,6 +6,8 @@
 
 修改`/src/assets/mirrors.json`
 
+![](HowToUseMirrors.json.jpeg)
+
 在`data`字段下添加如下格式的内容:
 
 ``` json
