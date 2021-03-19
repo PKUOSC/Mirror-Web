@@ -4,7 +4,7 @@
       "name": "Ubuntu-releases",
       "url": "/ubuntu-releases/"
     },
-    "ubuntu-cdimages": {
+    "ubuntu-cdimage": {
       "name": "Ubuntu-cdimage",
       "url": "/ubuntu-cdimage/"
     },
@@ -41,7 +41,7 @@
       "name": "Linuxmint",
       "url": "/linuxmint/"
     },
-    "linuxmint-cdimages": {
+    "linuxmint-cd": {
       "name": "Linuxmint-cd",
       "url": "/linuxmint-cd/"
     },

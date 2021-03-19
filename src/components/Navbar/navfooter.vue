@@ -6,7 +6,7 @@
           <ul style="text-align:left;margin:0">
             <li><b>Contact us: </b><a class="my-link" href="mailto:mirror@pku.edu.cn">mirror@pku.edu.cn</a></li>
             <li><b>Github: </b><a class="my-link" href="https://github.com/PKUOSC/">PKUOSC</a></li>
-            <li>Hello World :)</li>
+            <li><b>Issues: </b><a class="my-link" href="https://github.com/PKUOSC/issues/">Submit an issue.</a></li>
           </ul>
         </el-col>
         <el-col :span="8">
