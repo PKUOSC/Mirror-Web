@@ -5,8 +5,8 @@
       "url": "/ubuntu-releases/"
     },
     "ubuntu-cdimages": {
-      "name": "Ubuntu-cdimages",
-      "url": "/ubuntu-cdimages/"
+      "name": "Ubuntu-cdimage",
+      "url": "/ubuntu-cdimage/"
     },
     "ubuntu": {
       "name": "Ubuntu",
@@ -42,8 +42,8 @@
       "url": "/linuxmint/"
     },
     "linuxmint-cdimages": {
-      "name": "Linuxmint-cdimages",
-      "url": "/linuxmint-cdimages/"
+      "name": "Linuxmint-cd",
+      "url": "/linuxmint-cd/"
     },
     "opensuse": {
       "name": "Opensuse",
