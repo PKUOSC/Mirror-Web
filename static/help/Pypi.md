@@ -11,4 +11,4 @@
     pip config set global.index-url https://mirrors.pku.edu.cn/pypi/simple
     ```
 
-pip镜像处于测试阶段，如发现任何问题，请发邮件至pkumirror@163.com。
+pip镜像处于测试阶段，如发现任何问题，请发邮件至mirror@pku.edu.cn。
