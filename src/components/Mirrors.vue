@@ -45,13 +45,12 @@
 </template>
 
 <script>
-import mirrors from '@/assets/mirrors.json'
 import {DateTime} from 'luxon'
 export default {
   name: 'Mirrors',
   data () {
     return {
-      data: mirrors.data,
+      data: null,
       status: null,
       currentTime: DateTime.local()
     }
@@ -59,6 +58,9 @@ export default {
   computed: {
     tableData: function () {
       const result = []
+      if (this.data === null) {
+        return result
+      }
       for (const key in this.data) {
         let thisStatus, thisTimestamp, nextTimestamp
         if (this.status === null || !this.status.hasOwnProperty(key)) {
@@ -108,6 +110,9 @@ export default {
   },
   mounted () {
     let that = this
+    this.$axios.get('/monitor/mirrors').then(res => {
+      this.data = res.data
+    })
     this.$axios.get('/monitor/status').then(res => {
       let status = {}
       res.data.forEach((val, idx, arr) => {
