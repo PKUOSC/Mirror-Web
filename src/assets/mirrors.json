@@ -66,6 +66,18 @@
       "name": "Debian-cd",
       "url": "/debian-cd/"
     },
+    "debian-nonfree": {
+      "name": "Debian-nonfree",
+      "url": "/debian-nonfree/"
+    },
+    "debian-multimedia": {
+      "name": "Debian-multimedia",
+      "url": "/debian-multimedia/"
+    },
+    "debian-security": {
+      "name": "Debian-security",
+      "url": "/debian-security/"
+    },
     "manjaro": {
       "name": "Manjaro",
       "url": "/manjaro/"
