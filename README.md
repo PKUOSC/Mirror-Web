@@ -4,17 +4,7 @@
 
 ### 如何添加到Mirrors
 
-修改`/src/assets/mirrors.json`
-
-![](HowToUseMirrors.json.jpeg)
-
-在`data`字段下添加如下格式的内容:
-
-``` json
-"Name": {
-  "url": 仓库地址
-}
-```
+该部分内容已转移到async controller中，前端不需要修改任何设置
 
 ### 如何添加到Help
 
@@ -31,7 +21,7 @@
 参考"如何添加到Mirrors"
 
 ```
-"Name": {
+"metadata": {
   "url": 仓库地址,
   "help": 帮助的内部索引
 }
