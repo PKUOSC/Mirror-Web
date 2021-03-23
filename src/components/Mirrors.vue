@@ -10,7 +10,7 @@
         width="180">
         <template slot-scope="scope">
           <div style="">
-            <el-tooltip effect="dark" v-if="scope.row.describe!==''" :content="scope.row.describe" placement="bottom-start">
+            <el-tooltip effect="dark" v-if="scope.row.describe!==''" :content="scope.row.describe" placement="right">
               <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link">{{scope.row.name}}</a>
             </el-tooltip>
             <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link" v-else>{{scope.row.name}}</a>
