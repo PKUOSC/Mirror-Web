@@ -9,7 +9,12 @@
         label="Name"
         width="180">
         <template slot-scope="scope">
-          <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link">{{scope.row.name}}</a>
+          <div style="">
+            <el-tooltip effect="dark" v-if="scope.row.describe!==''" :content="scope.row.describe" placement="bottom-start">
+              <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link">{{scope.row.name}}</a>
+            </el-tooltip>
+            <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link" v-else>{{scope.row.name}}</a>
+          </div>
         </template>
       </el-table-column>
       <el-table-column
@@ -41,6 +46,7 @@
         </template>
       </el-table-column>
     </el-table>
+    <div style="height: 35px;"></div>
   </div>
 </template>
 
@@ -62,7 +68,7 @@ export default {
         return result
       }
       for (const key in this.data) {
-        let thisStatus, thisTimestamp, nextTimestamp
+        let thisStatus, thisTimestamp, nextTimestamp, thisDescribe
         if (this.status === null || !this.status.hasOwnProperty(key)) {
           thisStatus = '--'
           thisTimestamp = '--'
@@ -72,16 +78,26 @@ export default {
           thisTimestamp = DateTime.fromMillis(this.status[key].lastSyncTime).toRelative({base: this.currentTime})
           nextTimestamp = DateTime.fromMillis(this.status[key].nextSyncTime).toRelative({base: this.currentTime})
         }
+        thisDescribe = ''
+        if (this.data[key].hasOwnProperty('describe')) {
+          thisDescribe = this.data[key].describe
+        }
         result.push({
           name: this.data[key].name,
           status: thisStatus,
           lasttimestamp: thisTimestamp,
           nexttimestamp: nextTimestamp,
           url: this.data[key].url,
+          describe: thisDescribe,
           help: this.data[key].hasOwnProperty('help') ? this.data[key].help : ''
         })
       }
-      return result
+      return result.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1
+        }
+        return 1
+      })
     }
   },
   methods: {
@@ -137,7 +153,7 @@ h1, h2 {
 .mirror-link {
   text-decoration: none;
   color: #1989fa;
-  display: block;
+  width: auto;
 }
 .el-button {
   padding: 0;
