@@ -10,16 +10,22 @@
 
 <script>
 export default {
-  name: 'EPEL',
+  name: 'DefaultHelp',
   data () {
     return {
       epel_content: ''
     }
   },
   mounted () {
-    this.$axios.get('/static/help/EPEL.md').then((response) => {
+    this.$axios.get(`/static/help/${this.helpFile}.md`).then((response) => {
       this.epel_content = response.data
     })
+  },
+  props: {
+    helpFile: {
+      type: String,
+      default: 'EPEL'
+    }
   }
 }
 </script>

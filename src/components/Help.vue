@@ -8,12 +8,12 @@
           ref="menu"
           @select="handleSelect">
           <el-menu-item v-for="item in help_list" :key="item" :index="item">
-            <span slot="title">{{comps[item].name}}</span>
+            <span slot="title">{{comps[item].name == 'DefaultHelp' ? item : comps[item].name}}</span>
           </el-menu-item>
         </el-menu>
       </el-col>
       <el-col :span="18" :offset="1">
-        <component :is="comps[active]" v-on:render-complete="renderComplete()">
+        <component :is="comps[active]" :help-file="active" v-on:render-complete="renderComplete()">
         </component>
       </el-col>
     </el-row>
@@ -27,7 +27,7 @@ import hljs from 'highlight.js/lib/core'
 import Bash from 'highlight.js/lib/languages/bash'
 import PlainText from 'highlight.js/lib/languages/plaintext'
 import MarkdownItVue from 'markdown-it-vue/dist/markdown-it-vue-light.umd.min.js'
-
+import DefaultHelp from '@/components/DefaultHelp.vue'
 import allHelps from '@/components/helps'
 
 hljs.registerLanguage('bash', Bash)
@@ -92,10 +92,8 @@ const checkRoute = function (to, from, next) {
     // Redirect to the default help page.
     next({ path: `/Help/Ubuntu`, replace: to.name === null })
   } else if (to.params.active in allHelps === false) {
-    const err = new Error('404')
-    err.source = from.name
-    err.target = to.fullPath
-    throw err
+    // throw err
+    next({ path: `/Help/Ubuntu`, replace: to.name === null })
   } else {
     next()
   }
@@ -133,8 +131,32 @@ export default {
       el.scrollIntoView()
     }
   },
-  beforeRouteEnter (to, from, next) {
+  /* beforeRouteEnter (to, from, next) {
+    console.log(allHelps)
     checkRoute(to, from, next)
+  }, */
+  mounted () {
+    let that = this
+    this.$axios.get('/monitor/mirrors').then((res) => {
+      for (var k in res.data) {
+        let value = res.data[k]
+        if (value.hasOwnProperty('help')) {
+          if (!(value['help'] in allHelps)) {
+            console.log('Not found And Added')
+            that.help_list.push(value['help'])
+            that.comps[value['help']] = DefaultHelp
+          } else {
+            // console.log('Found')
+          }
+        }
+      }
+      // console.log(that.help_list)
+      if (!(that.active in that.comps)) {
+        console.log('Handling')
+        that.handleSelect('Ubuntu', 'Ubuntu')
+      }
+      that.help_list.sort()
+    })
   },
   beforeRouteUpdate (to, from, next) {
     checkRoute(to, from, next)
