@@ -2,7 +2,7 @@
   <div>
     <h1>Kubernetes镜像使用指南</h1>
     <p>
-      <customized-markdown :content="anaconda_content" v-on:render-complete="$emit('render-complete')">
+      <customized-markdown :content="kubernetes_content" v-on:render-complete="$emit('render-complete')">
       </customized-markdown>
     </p>
   </div>
@@ -10,15 +10,15 @@
 
 <script>
 export default {
-  name: 'Anaconda',
+  name: 'Kubernetes',
   data () {
     return {
-      anaconda_content: ''
+      kubernetes_content: ''
     }
   },
   mounted () {
     this.$axios.get('/static/help/Kubernetes.md').then((response) => {
-      this.anaconda_content = response.data
+      this.kubernetes_content = response.data
     })
   }
 }
