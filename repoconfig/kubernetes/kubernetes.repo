@@ -1,0 +1,5 @@
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.pku.edu.cn/kubernetes/yum/repos/kubernetes-el7-$basearch
+enabled=1
+gpgcheck=0
