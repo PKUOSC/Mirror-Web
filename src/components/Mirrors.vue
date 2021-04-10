@@ -1,6 +1,17 @@
 <template>
   <div>
     <h2><i class="el-icon-s-help"></i><strong>镜像列表</strong></h2>
+    <el-row type="flex" class="container-searchbox" justify="end">
+      <el-col :span="6">
+        <el-input
+          class="searchbox"
+          placeholder="搜索"
+          prefix-icon="el-icon-search"
+          clearable
+          v-model="searchPattern"
+        />
+      </el-col>
+    </el-row>
     <el-table
       :data="tableData"
       style="width: 100%"
@@ -52,7 +63,8 @@ export default {
     return {
       data: null,
       status: null,
-      currentTime: DateTime.local()
+      currentTime: DateTime.local(),
+      searchPattern: ''
     }
   },
   computed: {
@@ -62,6 +74,7 @@ export default {
         return result
       }
       for (const key in this.data) {
+        if (!!this.searchPattern && !this.data[key].name.toLowerCase().includes(this.searchPattern.toLowerCase())) continue
         let thisStatus, thisTimestamp, nextTimestamp, thisDescribe
         if (this.status === null || !this.status.hasOwnProperty(key)) {
           thisStatus = '--'
@@ -151,6 +164,10 @@ h1, h2 {
 }
 .el-button {
   padding: 0;
+}
+
+.container-searchbox {
+  margin: 4px auto;
 }
 </style>
 <style>
