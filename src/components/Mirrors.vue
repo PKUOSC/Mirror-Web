@@ -1,19 +1,35 @@
 <template>
   <div>
     <h2><i class="el-icon-s-help"></i><strong>镜像列表</strong></h2>
+    <el-row type="flex" class="container-searchbox" justify="end">
+      <el-col :span="6">
+        <el-input
+          class="searchbox"
+          placeholder="搜索"
+          prefix-icon="el-icon-search"
+          clearable
+          v-model="searchPattern"
+        />
+      </el-col>
+    </el-row>
     <el-table
       :data="tableData"
       style="width: 100%"
       :row-class-name="tableRowClassName">
       <el-table-column
         label="Name"
-        width="180">
+        >
         <template slot-scope="scope">
           <div style="">
             <el-tooltip effect="dark" v-if="scope.row.describe!==''" :content="scope.row.describe" placement="right">
               <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link">{{scope.row.name}}</a>
             </el-tooltip>
             <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link" v-else>{{scope.row.name}}</a>
+            <el-button
+            icon="el-icon-question"
+            @click="handleHelp(scope.row.help)"
+            v-if="scope.row.help !== ''"
+            type="text"></el-button>
           </div>
         </template>
       </el-table-column>
@@ -34,17 +50,6 @@
         label="Next Update"
         width="180">
       </el-table-column>
-      <el-table-column
-        label="Help"
-        align="right">
-        <template slot-scope="scope">
-          <el-button
-            icon="el-icon-question"
-            @click="handleHelp(scope.row.help)"
-            v-if="scope.row.help !== ''"
-            type="text"></el-button>
-        </template>
-      </el-table-column>
     </el-table>
     <div style="height: 35px;"></div>
   </div>
@@ -58,7 +63,8 @@ export default {
     return {
       data: null,
       status: null,
-      currentTime: DateTime.local()
+      currentTime: DateTime.local(),
+      searchPattern: ''
     }
   },
   computed: {
@@ -68,6 +74,7 @@ export default {
         return result
       }
       for (const key in this.data) {
+        if (!!this.searchPattern && !this.data[key].name.toLowerCase().includes(this.searchPattern.toLowerCase())) continue
         let thisStatus, thisTimestamp, nextTimestamp, thisDescribe
         if (this.status === null || !this.status.hasOwnProperty(key)) {
           thisStatus = '--'
@@ -157,6 +164,10 @@ h1, h2 {
 }
 .el-button {
   padding: 0;
+}
+
+.container-searchbox {
+  margin: 4px auto;
 }
 </style>
 <style>
