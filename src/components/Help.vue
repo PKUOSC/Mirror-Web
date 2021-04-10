@@ -159,6 +159,7 @@ export default {
     })
   },
   beforeRouteUpdate (to, from, next) {
+    console.log('Update')
     checkRoute(to, from, next)
     if (to.params.active !== this.active) {
       let el = this.$refs.menu.$el.querySelector(':focus')

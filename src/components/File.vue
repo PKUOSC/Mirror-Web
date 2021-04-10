@@ -74,12 +74,20 @@ export default {
     },
     jumpTo: function (path) {
       if (path.endsWith('/')) {
+        console.log('Pushing')
         this.$router.push(path)
-        this.url = path
-        this.loading = true
-        this.recalc()
+        // this.url = path
+        // this.loading = true
+        // this.recalc()
       }
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log(to)
+    this.url = to.fullPath + (to.fullPath.endsWith('/') ? '' : '/')
+    this.loading = true
+    this.recalc()
+    next()
   },
   data () {
     return {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>EPEL镜像使用指南</h1>
+    <h1>{{helpFile}}镜像使用指南</h1>
     <p>
       <customized-markdown :content="epel_content" v-on:render-complete="$emit('render-complete')">
       </customized-markdown>
