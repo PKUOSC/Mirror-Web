@@ -7,13 +7,18 @@
       :row-class-name="tableRowClassName">
       <el-table-column
         label="Name"
-        width="180">
+        >
         <template slot-scope="scope">
           <div style="">
             <el-tooltip effect="dark" v-if="scope.row.describe!==''" :content="scope.row.describe" placement="right">
               <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link">{{scope.row.name}}</a>
             </el-tooltip>
             <a href="javascript:void(0)" @click="jumpTo(scope.row.url)" class="mirror-link" v-else>{{scope.row.name}}</a>
+            <el-button
+            icon="el-icon-question"
+            @click="handleHelp(scope.row.help)"
+            v-if="scope.row.help !== ''"
+            type="text"></el-button>
           </div>
         </template>
       </el-table-column>
@@ -33,17 +38,6 @@
         prop="nexttimestamp"
         label="Next Update"
         width="180">
-      </el-table-column>
-      <el-table-column
-        label="Help"
-        align="right">
-        <template slot-scope="scope">
-          <el-button
-            icon="el-icon-question"
-            @click="handleHelp(scope.row.help)"
-            v-if="scope.row.help !== ''"
-            type="text"></el-button>
-        </template>
       </el-table-column>
     </el-table>
     <div style="height: 35px;"></div>
