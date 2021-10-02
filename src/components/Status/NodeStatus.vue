@@ -143,7 +143,7 @@ export default {
         if (res.hasOwnProperty(statLabel)) {
           let cdata = []
           res[statLabel].points.forEach((val, idx2, arr2) => {
-            cdata.push(Math.round((1.0 * val) / maxScale))
+            cdata.push((1.0 * val) / maxScale)
           })
           let cinfo = {
             label: statLabel.split('.')[1],
