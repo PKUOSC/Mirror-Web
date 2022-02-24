@@ -163,7 +163,7 @@ export default {
     },
     generateCpuData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=system.cpu&after=-86400&before=0&points=400&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/cpu.json').then((response) => {
         response.data.result.data[0].forEach((val, idx, arr) => {
           if (idx !== 0) {
             that.cpu_usage += val
@@ -204,7 +204,7 @@ export default {
     },
     generateRamData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=system.ram&after=-86400&before=0&points=400&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/ram.json').then((response) => {
         let allMem = 0
         let freeMem = 0
         response.data.result.data[0].forEach((val, idx, arr) => {
@@ -249,7 +249,7 @@ export default {
     },
     generateIpv4InData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=tc.world_in&after=-86400&before=0&points=400&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/world_in.json').then((response) => {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
@@ -302,7 +302,7 @@ export default {
     },
     generateIpv6InData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=tc.world_in&after=-86400&before=0&points=400&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/world_in.json').then((response) => {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
@@ -355,7 +355,7 @@ export default {
     },
     generateIpv4OutData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=tc.world_out&after=-86400&before=0&points=400&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/world_out.json').then((response) => {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
@@ -408,7 +408,7 @@ export default {
     },
     generateIpv6OutData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=tc.world_out&after=-86400&before=0&points=400&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/world_out.json').then((response) => {
         let raw = response.data.result.data.reverse()
         let needIdx = []
         let data = []
@@ -461,7 +461,7 @@ export default {
     },
     generateDiskData: function () {
       let that = this
-      this.$axios.get('/monitor_device/api/v1/data?chart=disk_space._data&after=-1&before=0&points=1&group=average&gtime=0&format=json&options=seconds&options=jsonwrap').then((response) => {
+      this.$axios.get('/monitor_device_status/disk_space.json').then((response) => {
         that.disk_used_size = Math.round(response.data.latest_values[1] / 1024)
         that.disk_avail_size = Math.round(response.data.latest_values[0] / 1024)
       })
