@@ -43,8 +43,12 @@ export default {
           codename: 'focal'
         },
         {
-          version: '20.10',
-          codename: 'groovy'
+          version: '21.04',
+          codename: 'hirsute'
+        },
+        {
+          version: '21.10',
+          codename: 'impish'
         }
       ],
       version: null
