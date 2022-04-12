@@ -18,6 +18,11 @@
       "url": "/centos/",
       "help": "CentOS"
     },
+    "docker-ce": {
+      "name": "Docker-ce",
+      "url": "/docker-ce/",
+      "help": "Docker-ce"
+    },
     "epel": {
       "name": "EPEL",
       "url": "/epel/",

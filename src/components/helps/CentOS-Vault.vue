@@ -1,15 +1,14 @@
 <template>
   <div>
-    <h1>CentOS镜像使用指南</h1>
+    <h1>CentOS-Valut镜像使用指南</h1>
     <div>
       <div class="select-version">
         <strong>选择你的CentOS版本:</strong>
       </div>
       <div class="select-version">
         <el-select v-model="selected" placeholder="请选择" v-on:change="handleSelect()">
-          <el-option value="CentOS7"></el-option>
+          <el-option value="CentOS7Before">CentOS7及之前</el-option>
           <el-option value="CentOS8"></el-option>
-          <el-option value="CentOS8-Stream"></el-option>
         </el-select>
       </div>
     </div>
@@ -22,15 +21,15 @@
 
 <script>
 export default {
-  name: 'CentOS',
+  name: 'CentOS-Valut',
   data () {
     return {
-      selected: 'CentOS7',
-      content: ''
+      selected: 'CentOS7Before',
+      content: 'CentOS7及之前'
     }
   },
   mounted () {
-    this.$axios.get('/static/help/CentOS/' + this.selected + '.md').then((response) => {
+    this.$axios.get('/static/help/CentOS-Vault/' + this.selected + '.md').then((response) => {
       this.content = response.data
     })
   },
@@ -44,7 +43,7 @@ export default {
   },
   watch: {
     selected: function () {
-      this.$axios.get('/static/help/CentOS/' + this.selected + '.md').then((response) => {
+      this.$axios.get('/static/help/CentOS-Vault/' + this.selected + '.md').then((response) => {
         this.content = response.data
       })
     }
