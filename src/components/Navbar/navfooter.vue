@@ -49,6 +49,6 @@ export default {
   color: white;
 }
 .footer-container {
-  background-color: #505255;
+  background-color: #700E0D;
 }
 </style>
