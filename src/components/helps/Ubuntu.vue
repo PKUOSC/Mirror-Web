@@ -47,8 +47,8 @@ export default {
           codename: 'hirsute'
         },
         {
-          version: '21.10',
-          codename: 'impish'
+          version: '22.04',
+          codename: 'jammy'
         }
       ],
       version: null
