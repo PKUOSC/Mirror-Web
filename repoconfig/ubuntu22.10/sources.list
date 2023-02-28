@@ -1,0 +1,12 @@
+deb http://mirrors.pku.edu.cn/ubuntu kinetic main restricted universe multiverse
+# deb-src http://mirrors.pku.edu.cn/ubuntu kinetic main restricted universe multiverse
+deb http://mirrors.pku.edu.cn/ubuntu kinetic-updates main restricted universe multiverse
+# deb-src http://mirrors.pku.edu.cn/ubuntu kinetic-updates main restricted universe multiverse
+deb http://mirrors.pku.edu.cn/ubuntu kinetic-backports main restricted universe multiverse
+# deb-src http://mirrors.pku.edu.cn/ubuntu kinetic-backports main restricted universe multiverse
+deb http://mirrors.pku.edu.cn/ubuntu kinetic-security main restricted universe multiverse
+# deb-src http://mirrors.pku.edu.cn/ubuntu kinetic-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb http://mirrors.pku.edu.cn/ubuntu kinetic-proposed main restricted universe multiverse
+# deb-src http://mirrors.pku.edu.cn/ubuntu kinetic-proposed main restricted universe multiverse
