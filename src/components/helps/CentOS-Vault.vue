@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>CentOS-Valut镜像使用指南</h1>
+    <h1>CentOS-Vault 镜像使用指南</h1>
     <div>
       <div class="select-version">
         <strong>选择你的CentOS版本:</strong>
       </div>
       <div class="select-version">
         <el-select v-model="selected" placeholder="请选择" v-on:change="handleSelect()">
-          <el-option value="CentOS7Before">CentOS7及之前</el-option>
+          <el-option value="CentOS7Before">CentOS 7 及之前</el-option>
           <el-option value="CentOS8"></el-option>
         </el-select>
       </div>
@@ -21,11 +21,11 @@
 
 <script>
 export default {
-  name: 'CentOS-Valut',
+  name: 'CentOS-Vault',
   data () {
     return {
       selected: 'CentOS7Before',
-      content: 'CentOS7及之前'
+      content: 'CentOS 7 及之前'
     }
   },
   mounted () {
