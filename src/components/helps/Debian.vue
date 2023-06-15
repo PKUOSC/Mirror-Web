@@ -27,27 +27,41 @@ export default {
       content_raw: '',
       versions: [
         {
-          version: 'testing',
-          codename: 'testing'
+          version: 'Debian Unstable (Sid)',
+          codename: 'sid',
+          security_suffix: '-security'
         },
         {
-          version: 'bullseye',
-          codename: 'bullseye'
+          version: 'Debian Testing 13 (Trixie)',
+          codename: 'trixie',
+          security_suffix: '-security'
         },
         {
-          version: 'buster',
-          codename: 'buster'
+          version: 'Debian 12 (Bookworm)',
+          codename: 'bookworm',
+          security_suffix: '-security'
         },
         {
-          version: 'stretch',
-          codename: 'stretch'
+          version: 'Debian 11 (Bullseye)',
+          codename: 'bullseye',
+          security_suffix: '-security'
+        },
+        {
+          version: 'Debian 10 (Buster)',
+          codename: 'buster',
+          security_suffix: '/updates'
+        },
+        {
+          version: 'Debian 9 (Stretch)',
+          codename: 'stretch',
+          security_suffix: '/updates'
         }
       ],
       version: null
     }
   },
   created () {
-    this.version = this.versions[1]
+    this.version = this.versions[2]
   },
   mounted () {
     this.$axios.get('/static/help/Debian.md').then((response) => {
@@ -68,9 +82,9 @@ export default {
         return ''
       }
       return this.content_raw.replace(
-        /{debian_version}/g, this.version.version
-      ).replace(
         /{debian_codename}/g, this.version.codename
+      ).replace(
+        /{debian_security}/g, this.version.security_suffix
       )
     }
   }
