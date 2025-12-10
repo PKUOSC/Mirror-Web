@@ -33,14 +33,8 @@ body {
   height: 100%;
   margin: 0;
 }
-@font-face {
-  font-family: 'Avenir';
-  src: url('/static/Avenir/avenir-next-regular.ttf'),
-       url('/static/Avenir/avenir-next-regular.woff'),
-       url('/static/Avenir/avenir-next-regular.woff2');
-}
 #app {
-  font-family: 'Avenir',Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;
+  font-family: Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
